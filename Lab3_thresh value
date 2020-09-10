@@ -1,0 +1,23 @@
+#program to take the input matrix from the user and ask its threshold value
+ro=int(input("number of rows:"))
+co=int(input("number of columns:"))
+matrix=[]
+for i in range(ro):
+    a=[]
+    for j in range(co):
+        a.append(int(input()))
+    matrix.append(a)
+    print(a)
+
+thresh=int(input("enter the thresh value"))
+for i in range(len(matrix)):
+    for j in range(len(matrix[0])):
+        if matrix[i][j]<thresh+1:
+            matrix[i][j]=0
+sparse=[]
+for i in range(len(matrix)):
+    for j in range(len(matrix[0])):
+        if matrix[i][j] !=0:
+            temp = [i,j,matrix[i][j]]
+            sparse.append(temp)
+print(sparse)
