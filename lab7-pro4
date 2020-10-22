@@ -1,0 +1,161 @@
+#To insert a node at any position of a doubly linked list  
+class Node:  
+      
+    def __init__(self, data):  
+        self.data = data  
+        self.prev = None
+        self.next = None
+  
+# Utility function to create 
+# a node in memory 
+def getNode(): 
+  
+    return (Node(0)) 
+  
+# Function to display the list 
+def displayList(temp): 
+  
+    t = temp 
+    if (temp == None): 
+        return 0
+    else : 
+        print("The list is: ", end = " ") 
+  
+        while (temp.next != t):  
+            print( temp.data, end = " ") 
+            temp = temp.next
+          
+        print(temp.data ) 
+  
+        return 1
+  
+# Function to count number of 
+# elements in the list 
+def countList( start): 
+  
+    # Declare temp pointer to 
+    # traverse the list 
+    temp = start 
+  
+     
+    count = 0
+  
+    
+    while (temp.next != start) : 
+        temp = temp.next
+        count = count + 1
+  
+   
+    count = count + 1
+  
+    return count 
+  
+# Function to insert a node at a given position 
+# in the  doubly linked list 
+def insertAtLocation(start, data, loc): 
+  
+    # Declare two pointers 
+    temp = None
+    newNode = None
+    i = 0
+    count = 0
+  
+    
+    newNode = getNode() 
+  
+    
+    temp = start 
+  
+     
+    count = countList(start) 
+  
+   
+    if (temp == None or count < loc): 
+        return start 
+  
+    else : 
+          
+        
+        newNode.data = data  
+        i = 1; 
+        while(i < loc - 1) : 
+            temp = temp.next
+            i = i + 1
+  
+         
+        newNode.next = temp.next
+  
+       
+        (temp.next).prev = newNode 
+  
+        
+        temp.next = newNode 
+  
+        newNode.prev = temp 
+  
+        return start 
+      
+    return start 
+  
+# Function to create 
+# doubly linked list from array elements 
+def createList(arr, n, start): 
+  
+    # Declare newNode and temporary pointer 
+    newNode = None
+    temp = None
+    i = 0
+  
+     
+    while (i < n) : 
+          
+        # Create new node 
+        newNode = getNode() 
+  
+        # Assign the array data 
+        newNode.data = arr[i] 
+  
+        
+        if (i == 0) : 
+            start = newNode 
+            newNode.prev = start 
+            newNode.next = start 
+          
+        else : 
+              
+           
+            temp = (start).prev 
+  
+           
+            temp.next = newNode 
+            newNode.next = start 
+            newNode.prev = temp 
+            temp = start 
+            temp.prev = newNode 
+        i = i + 1; 
+      
+    return start 
+  
+ 
+if __name__ == "__main__":  
+  
+    # Array elements to create 
+    # circular doubly linked list 
+    arr = [ 1, 2, 3, 4, 5, 6, 7]  
+    n = len(arr) 
+  
+    # Start Pointer 
+    start = None
+  
+    # Create the List 
+    start = createList(arr, n, start) 
+  
+    # Display the list before insertion 
+    displayList(start) 
+  
+    # Inserting 10 at 4th position 
+    start = insertAtLocation(start, 10, 4) 
+  
+    # Display the list 
+    displayList(start) 
+      
