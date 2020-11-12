@@ -1,0 +1,8 @@
+#program to find the second smallest in an array
+a=[]
+n=int(input("enter the size"))
+for i in range(n):
+    val=int(input("enter the number in array"))
+    a.append(val)
+    a.sort()
+print("second min number=",a[1])
