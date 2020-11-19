@@ -1,0 +1,24 @@
+# Python program for implementation of Insertion Sort 
+  
+def insertionSort(arr): 
+  
+     
+    for i in range(0,n): 
+  
+        key = arr[i] 
+        j = i-1
+        while j >=0 and key < arr[j] : 
+                arr[j+1] = arr[j] 
+                j = j-1
+        arr[j+1] = key
+arr =[]
+n = int(input("enter the number "))
+for i in range(0,n):
+    N = int(input())
+    arr.append(N)
+print(arr)
+insertionSort(arr)
+for i in range(n): 
+	print ("% d" % arr[i]) 
+        
+  
