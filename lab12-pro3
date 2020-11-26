@@ -1,0 +1,22 @@
+#program to create a binary tree and insert at least 12 nodes into it through user input values from console
+
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.right= None
+        self.left= None
+class BinaryTree:
+    def __init__(self):
+        self.root=None
+        self.root_right = None
+        self.root_left= None
+ob1=BinaryTree()
+N =  int(input("enter number15:"))
+ne=node(N)
+Ne = int(input("enter the number45:"))
+neh= node(Ne)
+Neh = int(input("enter the number67:"))
+neh1 = node(Neh)
+print(ne.data)
+print(neh.data)
+print(neh1.data)
